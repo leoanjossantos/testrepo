@@ -3,8 +3,7 @@ name: Run Application and Database
 on:
     push:
         branches:
-            - suggested_enhancements
-
+            - main
 
 jobs:
     deploy:
