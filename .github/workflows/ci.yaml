@@ -13,17 +13,19 @@ jobs:
           - name: Checkout code
             uses: actions/checkout@v2
 
-          - name: Install Heroku CLI
-            run: |
-              curl https://cli-assets.heroku.com/install.sh | sh
+          - name: Setup Heroku CLI
+            uses: akhileshns/heroku-deploy@v3.12.12 # This action sets up the Heroku CLI
 
           - name: Login to Heroku
-            run: |
-              echo "$HEROKU_API_KEY" | tr -d '\n' | heroku login -i
-            env:
-              HEROKU_API_KEY: af829ef3-13b5-497e-923a-5d7dd6b05ecc
-              # above hard coded key should be fetched from a github secret variable
+            uses: akhileshns/heroku-deploy@v3.12.12
+            with:
+              heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+              heroku_app_name: "pagarme-test"
+              heroku_email: "leoanjossantos2@gmail.com"
 
           - name: Deploy to Heroku
-            run: |
-              git push heroku suggested_enhancements:master
+            uses: akhileshns/heroku-deploy@v3.12.12
+            with:
+              heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+              heroku_app_name: "pagarme-test"
+              heroku_email: "leoanjossantos2@gmail.com"
