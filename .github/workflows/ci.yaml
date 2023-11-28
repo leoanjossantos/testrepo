@@ -8,6 +8,13 @@ on:
 jobs:
     deploy:
         runs-on: ubuntu-latest
+        env:
+          DB_POSTGRESS_PASSWORD: ${{ secrets.DB_POSTGRESS_PASSWORD }}
+          DB_POSTGRESS_DIALECT: ${{ secrets.DB_POSTGRESS_DIALECT }}
+          DB_POSTGRESS_HOST: ${{ secrets.DB_POSTGRESS_HOST }}
+          DB_POSTGRESS_PORT: ${{ secrets.DB_POSTGRESS_PORT }}
+          DB_POSTGRESS_DATABASE: ${{ secrets.DB_POSTGRESS_DATABASE }}
+          DB_POSTGRESS_USERNAME: ${{ secrets.DB_POSTGRESS_USERNAME }}
 
         steps:
           - name: Checkout code
