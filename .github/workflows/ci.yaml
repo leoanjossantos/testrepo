@@ -13,16 +13,6 @@ jobs:
           - name: Checkout code
             uses: actions/checkout@v2
 
-          - name: Setup Heroku CLI
-            uses: akhileshns/heroku-deploy@v3.12.12 # This action sets up the Heroku CLI
-
-          - name: Login to Heroku
-            uses: akhileshns/heroku-deploy@v3.12.12
-            with:
-              heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-              heroku_app_name: "pagarme-test"
-              heroku_email: "leoanjossantos2@gmail.com"
-
           - name: Deploy to Heroku
             uses: akhileshns/heroku-deploy@v3.12.12
             with:
