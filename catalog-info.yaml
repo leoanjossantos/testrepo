@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+manifestVersion: 0.0.1
+kind: System
+metadata:
+  name: desafio-review-qa-template
+  title: desafio review qa template
+  namespace: to-be-defined
+  description: Repositório de desafio de revisão de código de QA 
+  annotations:
+    github.com/project-slug: pagarme/desafio-review-qa-template
+    pagar.me/ci: github-actions
+    pagar.me/cd: false
+    stone.co/pci: false
+    stone.co/sox: false
+    stone.co/pii: false
+spec:
+  owner: pagarme/qa-team
+  type: github
+  system: platform

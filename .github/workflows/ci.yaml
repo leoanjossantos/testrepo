@@ -1,0 +1,30 @@
+name: Run Application and Database
+
+on:
+    push:
+        branches:
+            - suggested_enhancements
+
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v2
+
+          - name: Install Heroku CLI
+            run: |
+              curl https://cli-assets.heroku.com/install.sh | sh
+
+          - name: Login to Heroku
+            run: |
+              echo "$HEROKU_API_KEY" | tr -d '\n' | heroku login -i
+            env:
+              HEROKU_API_KEY: af829ef3-13b5-497e-923a-5d7dd6b05ecc
+              # above hard coded key should be fetched from a github secret variable
+
+          - name: Deploy to Heroku
+            run: |
+              git push heroku suggested_enhancements:master
