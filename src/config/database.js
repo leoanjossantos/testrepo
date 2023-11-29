@@ -1,7 +1,7 @@
 require('../lib/instrumentation').initEnvironment()
 
 module.exports = {
-  dialect: process.env.DB_POSTGRESS_DIALECT,
+  dialect: 'postgres',
   host: process.env.DB_POSTGRESS_HOST,
   port: process.env.DB_POSTGRESS_PORT,
   database: process.env.DB_POSTGRESS_DATABASE,
